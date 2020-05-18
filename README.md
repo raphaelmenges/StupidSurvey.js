@@ -1,3 +1,5 @@
+<img align="left" width="64" height="64" src="/assets/favicon/favicon-96x96.png" alt="Icon">
+
 # StupidSurvey.js
 Stupidly simple survey framework with JavaScript and **without database**.
 It allows to design **single-page surveys with pagination**, **required fields**, and **automatic client-side checkpoints** via Web storage.
