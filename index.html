@@ -1,0 +1,114 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>StupidSurvey.js</title>
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+
+	<!-- Styling -->
+	<link href="/assets/global.css" rel="stylesheet">
+
+	<!-- Loading font awesome -->
+	<style name="FontAwesome">
+		@font-face {
+			font-family: 'FontAwesome';
+			src: url('/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.eot');
+			src: url('/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+			     url('/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),
+			     url('/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff') format('woff'),
+			     url('/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf') format('truetype'),
+			     url('/assets/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.svg?#fontawesomeregular') format('svg');
+			font-weight: normal;
+			font-style: normal;
+		}
+	</style>
+	<link href="/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- StupidSurvey.js must be included before any use of it -->
+	<script type="text/javascript" src="/js/StupidSurvey.js"></script> 
+
+</head>
+
+<body>
+
+<div class="page">
+
+<div id="survey"></div> <!-- the survey will be included here-->
+
+</div> <!-- page -->
+
+<script type="text/javascript">
+
+// Define survey and its pages
+var s = StupidSurvey; // namespace of StupidSurvey
+s.init(document.getElementById("survey"));
+
+// Header items
+s.pushHeaderItem(new s.Paragraph("You can have items in the header which are displayed across all pages."));
+s.pushHeaderItem(new s.StrongSeparator());
+
+// #########################################################################################
+// First page
+// #########################################################################################
+var page = new s.Page("general"); s.pushPage(page);
+page.push(new s.Headline("Demonstration of StupidSurvey.js", 1));
+page.push(new s.Separator());
+
+// Headline
+page.push(new s.Headline("Deep Headline", 3));
+page.push(new s.Headline("Very Deep Headline", 4));
+page.push(new s.Paragraph("You can easily add headlines of different levels."));
+page.push(new s.Separator());
+
+// Select field
+page.push(new s.Question("Select field, e.g., for asking about the gender."));
+page.push(new s.Select("gender", ["female", "male", "other", "prefer not to say"], true));
+
+// Numerical input
+page.push(new s.Question("Numerical input, e.g., for asking about the age."));
+page.push(new s.Numerical("age", 0, true));
+
+// Textual input
+page.push(new s.Question("Textual input, e.g., for asking about the job title."));
+page.push(new s.Text("job", true));
+
+// Radio input
+page.push(new s.Question("Radio buttons, e.g., for asking about years of job experience."));
+page.push(new s.Radio("years_experience", ["1 year", "2-3 years", "4-10 years", "11+ years"], true));
+
+// Check
+page.push(new s.Question("Check, e.g., for asking whether liking JavaScript."));
+page.push(new s.Check("check", "I like JavaScript."));
+
+page.push(new s.Separator());
+page.push(new s.Paragraph("Below you can proceed to the next page of the survey."));
+
+// #########################################################################################
+// Second page
+// #########################################################################################
+var page = new s.Page("submission"); s.pushPage(page);
+page.push(new s.Headline("Survey submission"));
+
+// Terms
+page.push(new s.Paragraph("Here should add some information about data handling and protection."));
+page.push(new s.Check("agree_on_terms", "Yes, agree to above terms.", true)); // 'true' let the survey only validate if checked by user
+page.push(new s.Separator());
+
+// Submit!
+page.push(new s.Paragraph("Last you should ask for the passphrase as defined in the cgi-bin/processing.py, line 13/14."));
+page.push(new s.Text("passphrase", true, false));
+page.push(new s.Paragraph("Submit button is added automatically to the last page upon finalization."));
+
+// Finalize survey
+s.finalize();
+
+</script>
+
+</body>
+
+</html>
