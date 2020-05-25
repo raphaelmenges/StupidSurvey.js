@@ -3,7 +3,7 @@
 # StupidSurvey.js
 Stupidly simple survey framework with JavaScript and **without database**.
 It allows to design **single-page surveys with pagination**, **required fields**, and **automatic client-side checkpoints** via Web storage.
-The most important HTML form elements have been wrapped to be coveniently available and stylable.
+The most important HTML form elements have been wrapped to be conveniently available and stylable.
 Replies by participants are stored as .json in your nextcloud, or any other file drop.
 You can setup the survey by using a Docker container and providing a public nextcloud file drop for the replies.
 This does spare you from learning any basics in SQL and you only need to edit the front-end.
