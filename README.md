@@ -29,7 +29,7 @@ Adding further form elements should not be difficult, too.
 Have a look at [StupidSurvey.js](/js/StupidSurvey.js), also to know about the parameters for each form element.
 
 ## Setup
-See [deploy.sh](/deploy.sh) and the [Dockerfile](/dockerfile) for further details.
+See [deploy.sh](/deploy.sh) and the [Dockerfile](/Dockerfile) for further details.
 Should run on any modern docker environment.
 
 ## Local setup
